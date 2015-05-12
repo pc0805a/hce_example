@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/User/AndroidStudioProjects/host-card-emulation-sample/app/src/main/res/values/dimens.xml -->
+    <!-- From: file:/C:/Users/pc080/AndroidStudioProjects/hce_example/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- From: file:/C:/Users/User/AndroidStudioProjects/host-card-emulation-sample/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/C:/Users/pc080/AndroidStudioProjects/hce_example/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="action_settings">Settings</string>
     <string name="activity_into">Reader mode active</string>
     <string name="aiddescription">aiddescription</string>
     <string name="app_name">HceDemo</string>
+    <string name="input_title">Input</string>
     <string name="servicedesc">servicedesc</string>
-    <!-- From: file:/C:/Users/User/AndroidStudioProjects/host-card-emulation-sample/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/C:/Users/pc080/AndroidStudioProjects/hce_example/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
