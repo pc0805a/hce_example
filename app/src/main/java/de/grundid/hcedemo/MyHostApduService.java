@@ -1,5 +1,6 @@
 package de.grundid.hcedemo;
 
+import android.database.Cursor;
 import android.nfc.cardemulation.HostApduService;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,8 +9,26 @@ public class MyHostApduService extends HostApduService {
 
 	private int messageCounter = 0;
 
+	private MemberInfo meberInfo;
+	private Cursor mCursor;
+	private String memberID;
+
+	private void getMemberInfo() {
+
+		meberInfo = new  MemberInfo(this);
+		meberInfo.open();
+
+		Cursor cursor = meberInfo.getAll();
+		int row_num = cursor.getCount();
+		if (row_num != 0) {
+			cursor.moveToFirst();
+			memberID = cursor.getString(1);
+		}
+	}
+
 	@Override
 	public byte[] processCommandApdu(byte[] apdu, Bundle extras) {
+		getMemberInfo();
 		if (selectAidApdu(apdu)) {
 			Log.i("HCEDEMO", "Application selected");
 			return getWelcomeMessage();
@@ -21,11 +40,11 @@ public class MyHostApduService extends HostApduService {
 	}
 
 	private byte[] getWelcomeMessage() {
-		return "Hello Desktop!".getBytes();
+		return "This is my android HCE Demo".getBytes();
 	}
 
 	private byte[] getNextMessage() {
-		return ("Message from android: " + messageCounter++).getBytes();
+		return ("Message from android: " + memberID).getBytes();
 	}
 
 	private boolean selectAidApdu(byte[] apdu) {
@@ -36,4 +55,6 @@ public class MyHostApduService extends HostApduService {
 	public void onDeactivated(int reason) {
 		Log.i("HCEDEMO", "Deactivated: " + reason);
 	}
+
+
 }
